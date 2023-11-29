@@ -19,7 +19,7 @@ const createNewTanah = (req, res) => {
     })
 }
 
-module.exports ={
+module.exports = {
     getAllTanah,
     createNewTanah,
 }
