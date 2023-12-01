@@ -1,12 +1,11 @@
-const getAllTanah = (req, res) => {
-    const data = {
-        nama: "JambuMete",
-        Deskripsi: "JambuMete adalah",
-        Habitat: "Habitat jambu",
-    }
+const UsersModel = require ('../models/tanaman');
+
+const getAllTanah = async (req, res) => {
+
+    const data = await UsersModel.getAllTanaman();
 
     res.json({
-        Message:'Get allTanah successfully',
+        Message:'Get allTanaman successfully',
         data: data   
     })
 }
