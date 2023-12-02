@@ -10,8 +10,6 @@ const app = express();
 
 app.use(middlewareLogRequest);
 
-
-
 app.use(express.json());
 
 app.use('/tanaman', tanahRoutes);
