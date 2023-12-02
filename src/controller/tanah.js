@@ -1,13 +1,35 @@
 const UsersModel = require ('../models/tanaman');
 
 const getAllTanah = async (req, res) => {
+    try{
+        const data = await UsersModel.getAllTanaman();
+    
+        res.json({
+            Message:'Get allTanaman successfully',
+            data: data   
+        })
 
-    const data = await UsersModel.getAllTanaman();
+    } catch (err) {
+        res.status(500).json({
+            message: 'server error',
+            serverMessage: err,
+        })
+    }
+}
 
-    res.json({
-        Message:'Get allTanaman successfully',
-        data: data   
-    })
+const getTanamanById = async (req,res) =>{
+    try {
+        const{id_tanaman} = req.params;
+        const data = await UsersModel.getTanamanById(id_tanaman);
+
+        res.json({
+            Message:'Get IdTanaman successfully',
+            data: data
+        })
+
+    } catch (err) {
+        res.status(500).json({message: err.message})
+    }
 }
 
 const createNewTanah = (req, res) => {
@@ -21,4 +43,5 @@ const createNewTanah = (req, res) => {
 module.exports = {
     getAllTanah,
     createNewTanah,
+    getTanamanById
 }
